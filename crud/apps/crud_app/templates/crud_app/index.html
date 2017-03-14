@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> </title>
+</head>
+<body>
+    <form action="/create" method="post">
+    {% csrf_token %} 
+    <label for="name"> Name: <input type="text" id="name" name="name" /></label> 
+    <label for="language">Language: <input type="text" id="language" name="language"> </label>
+    <label for="codesnippet">Code Snippet: <input type="text" id="codesnippet" name="codesnippet"> </label>
+    
+    <input type="submit" value="create" />
+    </form>
+    <table border="1">
+            <thead>
+                <tr>
+                <th> Name </th>
+                <th> Language </th>
+                <th> Code Snippet </th>
+                <th> Created At </th>
+                <th> Updated At </th>
+                <th> Actions </th>
+                </tr>
+            </thead>
+            <tbody>
+               {% for newcode in newcodes %}   <!-- for loop through newcodes object-->
+                <tr>
+                <td> {{ newcode.name}}</td>
+                <td> {{ newcode.language}}</td>
+                <td> {{ newcode.codesnippet }}</td>
+                <td> {{ newcode.created_at }}</td>
+                <td> {{ newcode.updated_at}}</td>
+                <td><a href="/edit/{{ newcode.id }}">Edit</a>
+                <a href="/delete/{ newcode.id }}">Delete</a></td>
+                
+                {% endfor %}
+                </tr>
+            </tbody> 
+
+</body>
+</html>     

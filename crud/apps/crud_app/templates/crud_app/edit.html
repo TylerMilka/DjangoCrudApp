@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> </title>
+</head>
+<body>
+    <form action="/update/{{ newcode.id }}" method="post">
+        {% csrf_token %}
+        <label for="name">Name: <input type="text" name="name" id="name" value="{{ newcode.name }}" placeholder="{{ newcode.name }}" /></label>
+        <label for="language">Language: <input type="text" name="language" value="{{ newcode.language }}" placeholder="{{ newcode.language }}" /> </label>
+        <label for="codesnippet"> Code Snippet: <input type="text" name="codesnippet" value="{{ newcode.codesnippet }}" placeholder="{{ newcode.codesnippet }}"/> </label>
+        <input type="submit" value="update" /> 
+    </form>
+</body>
+</html>
